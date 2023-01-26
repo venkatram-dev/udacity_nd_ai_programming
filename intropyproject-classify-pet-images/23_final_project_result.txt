@@ -1,0 +1,36 @@
+This is the summary of results for the 3 models on the pet images provided.
+I looked at the 3 files and compiled the results here.
+Files used resnet_pet-images.txt, alexnet_pet-images.txt,vgg_pet-images.txt
+
+
+Here is the Results Table after the program ran.
+
+------------------------------------------------------------------------------------------------------------------------------
+METRICS                                 | RESNET               |  ALEXNET                | VGG
+--------------------------------------------------------------------- -----------------------------------------------------------
+Number of Total images                  |    40                 |   40                     |   40
+Number of Dog Images                    |    30                 |   30                     |   30
+Number of Not Dog Images                |    10                 |   10                     |   10
+Percentage of Correct Dogs              |    100%               |   100%                   |   100%
+Percentage of Correct Not-a-Dog         |    90%                |   100%                   |   100%
+Percentage of Correct Breed             |    90%                |   80%                    |   93.3%
+Percentage of label matches             |    82.5%              |   75%                    |   87.5%
+
+Classifying the breed of dogs
+-----------------------------
+VGG was the better as it has classified the correct breed of dogs with 93.3% accuracy.
+
+
+Classifying dog vs not-a-dog
+-----------------------------
+Both VGG and Alexnet classified the dog vs not-a-dog to 100% accuracy.
+But RESNET did only up to 90%
+
+BEST MODEL
+-----------------------------
+In my opinion, VGG model architecture was the best in classifying these images.
+
+Based on the results table above, we can clearly see that VGG correctly identified the breed better
+and also performed the dog vs not-a-dog classification to 100% accuracy. 
+
+

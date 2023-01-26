@@ -1,0 +1,58 @@
+I uploaded these images :
+Black Bear, Poodle 01, Poodle 02, Coffee mug.
+
+
+Here is the Results Table after the program ran.
+I looked at these files resnet_uploaded-images.txt,alexnet_uploaded-images.txt,vgg_uploaded-images.txt
+
+------------------------------------------------------------------------------------------------------------------------------
+METRICS                                 | RESNET               |  ALEXNET                | VGG
+--------------------------------------------------------------------- -----------------------------------------------------------
+Number of Total images                  |    4                 |   4                     |   4
+Number of Dog Images                    |    2                 |   2                     |   2
+Number of Not Dog Images                |    2                 |   2                     |   2
+Percentage of Correct Dogs              |    100%              |   100%                  |   100%
+Percentage of Correct Not-a-Dog         |    100%              |   100%                  |   100%
+Percentage of Correct Breed             |    0%                |   0%                    |   100%
+Percentage of label matches             |    25%               |   25%                   |   75%
+
+Classifying the breed of dogs
+-----------------------------
+RESNET classified the breeds as below 
+Poodle_01.jpg:pet image Real::: poodle  classifier::: maltese dog, maltese terrier, maltese
+Poodle_02.jpg:pet image Real::: poodle  classifier::: maltese dog, maltese terrier, maltese
+
+
+ALEXNET classified the breeds as below 
+
+Poodle_01.jpg: pet image Real::: poodle  classifier::: pekinese, pekingese, peke
+Poodle_02.jpg: pet image Real::: poodle  classifier::: pekinese, pekingese, peke
+
+
+VGG classified the breeds as below
+Poodle_01.jpg:pet image Real :::  poodle   Classifier::: toy poodle
+Poodle_02.jpg:pet image Real :::  poodle   Classifier::: toy poodle
+
+Q1. Did the three model architectures classify the breed of dog in Dog_01.jpg to be the same breed? If not, report the differences in the classifications.
+
+As we can see from above, VGG classified it correctly as poodle. I would think the next best was RESNET which classified as maltese.
+ALEXNET classified it as pekinese.
+
+Q2. Did each of the three model architectures classify the breed of dog in Dog_01.jpg to be the same breed of dog as that model architecture classified Dog_02.jpg? If not, report the differences in the classifications.
+
+yes, all of the models classified dog_02 to be same breed as dog_01.
+
+
+Classifying dog vs not-a-dog
+-----------------------------
+3. Did the three model architectures correctly classify Animal_Name_01.jpg and Object_Name_01.jpg to not be dogs? If not, report the misclassifications.
+
+Yes, all the models classified the black bear and coffee mug as not-a-dog.
+
+
+BEST MODEL
+-----------------------------
+In my opinion, VGG model architecture was the best in classifying these 4 images.
+
+Based on the results table above, we can clearly see that VGG correctly identified the breed, but the other 2 models did not.
+Also, the label match was better in VGG.

@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/classify_images.py
 #                                                                             
-# PROGRAMMER: 
-# DATE CREATED:                                 
+# PROGRAMMER: Venkat Ram
+# DATE CREATED:         10/31/2018                        
 # REVISED DATE: 
 # PURPOSE: Create a function classify_images that uses the classifier function 
 #          to create the classifier labels and then compares the classifier 
@@ -12,7 +12,7 @@
 #             and as in_arg.dir for function call within main. 
 #            -The results dictionary as results_dic within classify_images 
 #             function and results for the functin call within main.
-#            -The CNN model architecture as model within classify_images function
+#            -The CNN model architecture as model wihtin classify_images function
 #             and in_arg.arch for the function call within main. 
 #           This function uses the extend function to add items to the list 
 #           that's the 'value' of the results dictionary. You will be adding the
@@ -65,4 +65,37 @@ def classify_images(images_dir, results_dic, model):
      Returns:
            None - results_dic is mutable data type so no return needed.         
     """
-    None 
+    #print (images_dir)
+    #print (results_dic)
+    #print (model)
+    
+    
+    for k,v in results_dic.items():
+        full_file_path=images_dir + k
+        #print (full_file_path)
+        image_classification_label = classifier(full_file_path, model)
+        
+        image_classification_label=image_classification_label.lower().strip()
+        #print ('image_classification_label',image_classification_label)
+        pet_label_from_file=v[0]
+        #print ('pet_label_from_file',pet_label_from_file)
+        if pet_label_from_file in image_classification_label:
+            match=1
+        else:
+            match=0
+        #print ('match',match)
+        #print ('results_dic[k] before ',results_dic[k])
+
+        #results_dic[k]=[pet_label_from_file,image_classification_label]
+        #results_dic[k].extend([image_classification_label])
+        #results_dic[k].append(match)
+        results_dic[k].extend([image_classification_label,match])
+        
+        #print ('results_dic[k] after ',results_dic[k])
+        
+        
+        
+        
+        
+        
+        

@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/print_results.py
 #                                                                             
-# PROGRAMMER: 
-# DATE CREATED:
+# PROGRAMMER: Venkat Ram
+# DATE CREATED: 11/2
 # REVISED DATE: 
 # PURPOSE: Create a function print_results that prints the results statistics
 #          from the results statistics dictionary (results_stats_dic). It 
@@ -62,5 +62,37 @@ def print_results(results_dic, results_stats_dic, model,
     Returns:
            None - simply printing results.
     """    
-    None
+    print("\n Results Summary for CNN Model Architecture",model)
+    print ("\n Number of Images",results_stats_dic['n_images'])
+    print ("\n Number of Dog Images",results_stats_dic['n_dogs_img'])
+    print ("\n Number of Not Dog Images",results_stats_dic['n_notdogs_img'])
+    for key in results_stats_dic:
+        if 'pct' in key:
+            print ("\n Percentage ", key,"  " ,results_stats_dic[key])
+    #print ('print_incorrect_dogs',print_incorrect_dogs )       
+    if (print_incorrect_dogs and 
+        ( (results_stats_dic['n_correct_dogs'] + results_stats_dic['n_correct_notdogs'])
+          != results_stats_dic['n_images'] ) 
+       ):
+        print("\nINCORRECT Dog/NOT Dog Assignments:")
+        
+        for key,value in results_dic.items():
+            if value[3] + value[4] ==1:
+                print ("pet image Real:::" ,value[0],  " classifier:::", value[1])
+    #print ('print_incorrect_breed',print_incorrect_breed )         
+    if (print_incorrect_breed and 
+        (results_stats_dic['n_correct_dogs'] != results_stats_dic['n_correct_breed']) 
+       ):
+        print("\nINCORRECT Dog Breed Assignment:")
+
+        # process through results dict, printing incorrectly classified breeds
+        for key,value in results_dic.items():
+
+            # Pet Image Label is-a-Dog, classified as-a-dog but is WRONG breed
+            if  ((value[3] + value[4]) == 2) and value[2] == 0 :
+                print ("pet image Real:::" ,value[0],  " classifier:::", value[1])
+
+           
+       
+    
                 
